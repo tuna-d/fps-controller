@@ -1,9 +1,11 @@
 import "./App.css"
+import BabylonScene from "./components/BabylonScene"
 
 function App() {
   return (
-    <main>
-      <h1>Hello from React!</h1>
+    <main className="bg-zinc-600 h-screen flex flex-col items-center justify-center">
+      <h1 className="text-4xl text-white mb-4">First Person Controller</h1>
+      <BabylonScene />
     </main>
   )
 }
