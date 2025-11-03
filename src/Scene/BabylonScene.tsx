@@ -12,6 +12,7 @@ import { useEffect, useRef } from "react"
 
 import CreateWalls from "../components/CreateWalls"
 import CreateRoom from "../components/CreateRoom"
+import CreateObjects from "../components/CreateObjects"
 
 export default function BabylonScene() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -77,6 +78,7 @@ function CreateEnvironment(scene: Scene): void {
 
   CreateWalls(scene)
   CreateRoom(scene)
+  CreateObjects(scene)
 }
 
 function CreateGroundMaterial(scene: Scene): PBRMaterial {
