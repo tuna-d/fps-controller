@@ -57,11 +57,14 @@ export default function CreateWalls(scene: Scene): void {
   )
 
   wall4.position = new Vector3(0, 5, -25)
+  wall4.rotation = new Vector3(0, Math.PI, 0)
 
-  wall1.material = CreateWallMaterial(scene)
-  wall2.material = CreateWallMaterial(scene)
-  wall3.material = CreateWallMaterial(scene)
-  wall4.material = CreateWallMaterial(scene)
+  const walls = [wall1, wall2, wall3, wall4]
+
+  walls.map((wall) => {
+    wall.material = CreateWallMaterial(scene)
+    wall.checkCollisions = true
+  })
 }
 
 function CreateWallMaterial(scene: Scene): PBRMaterial {
