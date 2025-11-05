@@ -118,8 +118,6 @@ npm run build
 ![Gameplay](docs/screenshots/2.png)
 ![Gameplay](docs/screenshots/3.png)
 
-_(Add your actual screenshots in `/docs/screenshots/` once you take them.)_
-
 ## 🧠 What I Learned
 
 - How Babylon.js handles **collisions, gravity, and movement vectors**
