@@ -29,14 +29,10 @@ export default function BabylonScene() {
 
     const scene = new Scene(engine)
 
-    const hemiLight = new HemisphericLight(
-      "hemiLight",
-      new Vector3(0, 5, 0),
-      scene
-    )
-
     CreateController(scene)
     CreateEnvironment(scene)
+
+    new HemisphericLight("hemiLight", new Vector3(0, 10, 0), scene)
 
     engine.runRenderLoop(() => {
       scene.render()

@@ -1,73 +1,146 @@
-# React + TypeScript + Vite
+# 🕹️ First Person Controller — Babylon.js + React + TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> 🟢 **Live Demo:** [https://fpscontroller.netlify.app](https://fpscontroller.netlify.app)
 
-Currently, two official plugins are available:
+A small learning project built with **Babylon.js** and **React (TypeScript)** that demonstrates  
+how to create a **first-person 3D environment** with collisions, jumping, and interactive rooms.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🧭 Overview
 
-## React Compiler
+This project was created as part of my exploration into **3D graphics and interaction systems** in the browser.  
+It focuses on building a **first-person movement system** from scratch using Babylon.js physics and camera controls.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🎯 Core Learning Goals
 
-## Expanding the ESLint configuration
+- Understanding Babylon.js **scene creation, camera control, and lighting**
+- Implementing **FPS movement with gravity, collisions, and jumping**
+- Structuring a **React + Babylon.js integration**
+- Creating and texturing 3D environments (room, walls, floor, props)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✨ Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- 🧍 **First-Person Camera** with pointer lock and WASD movement
+- ⚙️ **Gravity and Jumping Physics** using Babylon’s collision system
+- 🧱 **3D Environment** built from planes and meshes (room, walls, objects)
+- 💎 **PBR Materials** with realistic textures (concrete, metal, etc.)
+- 🔁 **Responsive Scene** that auto-resizes with window changes
+- 🎮 **Pointer Lock Mode** (Right-click to lock/unlock camera view)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠️ Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Category        | Tools                             |
+| --------------- | --------------------------------- |
+| 3D Engine       | Babylon.js Core                   |
+| Framework       | React + TypeScript                |
+| Build Tool      | Vite                              |
+| Styling         | Tailwind CSS                      |
+| Models & Assets | Custom textured planes and meshes |
+
+## 🚀 Getting Started
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/dilangezgin/first-person-controller.git
+cd first-person-controller
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2️⃣ Install Dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+### 3️⃣ Run in Development Mode
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+Right-click to toggle pointer lock and use **WASD** + **Space** to move.
+
+### 4️⃣ Build for Production
+
+```bash
+npm run build
+```
+
+## 📂 Folder Structure
+
+```
+📦 first-person-controller
+ ┣ 📂 public
+ ┃ ┣ 📂 image
+ ┃ ┃ ┗ arm_knife.png
+ ┃ ┣ 📂 model
+ ┃ ┃ ┣ door.glb
+ ┃ ┃ ┣ electric_box.glb
+ ┃ ┃ ┣ skate_ramp.glb
+ ┃ ┃ ┗ wood_box.glb
+ ┃ ┣ 📂 texture
+ ┃ ┃ ┣ 📂 ground
+ ┃ ┃ ┣ 📂 room-wall
+ ┃ ┃ ┗ 📂 wall
+ ┃ ┗ 🗎 vite.svg
+ ┣ 📂 src
+ ┃ ┣ 📂 components
+ ┃ ┃ ┣ CreateObjects.ts
+ ┃ ┃ ┣ CreateRoom.ts
+ ┃ ┃ ┗ CreateWalls.ts
+ ┃ ┣ 📂 Scene
+ ┃ ┃ ┗ BabylonScene.tsx
+ ┃ ┣ 🗎 App.tsx
+ ┃ ┣ 🗎 main.tsx
+ ┃ ┗ 🗎 index.css
+ ┣ 🗎 vite.config.ts
+ ┣ 🗎 tsconfig.json
+ ┣ 🗎 package.json
+ ┗ 🗎 README.md
+
+```
+
+## 🎮 Controls
+
+| Action              | Key         |
+| ------------------- | ----------- |
+| Move Forward        | W           |
+| Move Backward       | S           |
+| Move Left           | A           |
+| Move Right          | D           |
+| Jump                | Space       |
+| Pointer Lock Toggle | Right Click |
+| Unlock Pointer      | Esc         |
+
+## 🖼️ Screenshots
+
+![Gameplay](docs/screenshots/1.png)
+![Gameplay](docs/screenshots/2.png)
+![Gameplay](docs/screenshots/3.png)
+
+_(Add your actual screenshots in `/docs/screenshots/` once you take them.)_
+
+## 🧠 What I Learned
+
+- How Babylon.js handles **collisions, gravity, and movement vectors**
+- Integrating a **3D engine inside a React lifecycle**
+- Creating **PBR materials** for realistic surfaces
+- Structuring reusable environment logic (`CreateWalls`, `CreateRoom`, `CreateObjects`)
+- Handling **pointer lock states** cleanly with React hooks
+
+## 💡 Future Improvements
+
+- 🚪 **Door Interaction** — implement interactive doors that open and close when the player gets close or presses a key
+- ⏳ **Custom Loading Screen** — add a smooth loading interface with a progress bar for model and texture loading
+- 🔊 **Sound Design** — introduce background ambience, footstep, and door-opening sounds for immersive realism
+- 🔫 **Firing Feature** — add basic shooting mechanics with projectile effects and impact detection
+
+## 👨‍💻 Author
+
+**Tunahan Demirel**
+
+💻 Front-End Developer | Exploring Babylon.js
+
+## 🪪 License
+
+This project is licensed under the **MIT License** — feel free to explore and remix it for learning.
